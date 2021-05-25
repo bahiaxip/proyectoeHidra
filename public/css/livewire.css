@@ -1,0 +1,49 @@
+.nav_livewire2{
+
+	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
+	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+}
+.back_livewire2,.back_livewire2 a,.back_livewire2:hover{
+	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
+	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	color: white;
+	font-weight: bold;
+}
+.back_livewire2 a:hover{
+	background: #00b7a8;
+	color: white;
+	font-weight: bold;
+	
+}
+
+.table-row.divide-x.divide-gray-200{
+	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
+	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+}
+.c_grad_green{
+	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
+	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+}
+.text-gray-500{
+	color: white !important;
+	font-weight: bold !important;
+	
+}
+.border-gray-800{
+	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
+	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	font-weight: bold !important;
+}
+.border-gray-800:hover{
+	background: blue
+}
