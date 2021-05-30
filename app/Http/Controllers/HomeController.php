@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Profile;
 class HomeController extends Controller
 {
     /**
@@ -25,4 +25,21 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function verification(){        
+
+        return view('verification');
+    }
+
+    /*
+    public function exportPDF(){
+        //$pdf=app('dompdf.wrapper');
+        $profiles=Profile::all();
+
+        //$pdf->loadHTML('<h1>Styde.net</h1>');
+        $view="livewire.profile";
+        $pdf=\PDF::loadView($view,['profiles'=>$profiles]);
+        return $pdf->stream('mi-archivo.pdf');
+    }
+    */
 }

@@ -18,9 +18,11 @@ class CreateProfilesTable extends Migration
             $table->string("surnames")->nullable();
             $table->string("province")->nullable();
             $table->string("country")->nullable();
-            $table->string("phone")->nullable();
+            $table->string("phone")->nullable();            
             $table->integer("user_id");
             $table->string("file")->nullable();
+            $table->string("thumb")->nullable();
+            $table->string("file_name")->nullable();
             $table->timestamps();
         });
     }

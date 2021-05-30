@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    //'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,8 +38,12 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            //'root' => storage_path('app/public'),
+            //con public_path() permite acceder a los directorios del public 
+            //original y a los directorios public del enlace simbólico sin 
+            //añadir ningún otro parámetro (storage/, images/, etc...)
+            'root'=>public_path(),
+            'url' => env('APP_URL').'/',
             'visibility' => 'public',
         ],
 
@@ -67,6 +72,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        //public_path('images') => storage_path('app/public'),
     ],
 
 ];

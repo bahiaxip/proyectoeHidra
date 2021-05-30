@@ -26,7 +26,9 @@ class UserSeeder extends Seeder
             "province"=>"Córdoba",
             "country"=>"España",
             "user_id"=>1,
-            "file"=>"img/person.png"
+            "file"=>"img/person.png",
+            "thumb"=>"img/person.png",
+            "file_name"=>"imagen usuario"
         ]);
 
         User::factory()->count(100)->create()

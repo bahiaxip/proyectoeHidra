@@ -35,6 +35,8 @@ class ProfileFactory extends Factory
             'province' => $rand_province,
             'country' => $rand_country,            
             'file' => "img/person.png",
+            'thumb'=>"img/person.png",
+            "file_name"=>"person.png"
         ];
     }
 }

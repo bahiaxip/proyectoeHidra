@@ -5,6 +5,11 @@
 	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
 	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
 }
+.nav_livewireA:hover, .back_livewire2 th:hover{
+	color: #5bde93 !important;
+	font-weight: bold !important;
+}
+
 .back_livewire2,.back_livewire2 a,.back_livewire2:hover{
 	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
 	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
@@ -17,7 +22,11 @@
 	background: #00b7a8;
 	color: white;
 	font-weight: bold;
-	
+}
+
+.trans_logo{
+	transition: all 0.2s ease-in;
+
 }
 
 .table-row.divide-x.divide-gray-200{
@@ -26,13 +35,37 @@
 	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
 	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
 }
+.table tr{
+
+}
+.table th{
+	cursor: pointer;
+	user-select: none;
+}
+.dropdown a{
+	cursor: pointer;
+}
+.switchActive,.swActive a:hover,.swActive a:active{
+	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
+	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	color: white !important;
+	font-weight: bold !important;
+}
+.swActive:hover,.swActive:active{
+
+}
 .c_grad_green{
 	background: linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%) ;
 	background: -webkit-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
 	background: -moz-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
-	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);	
+	background: -ms-linear-gradient(to bottom,#00b0a8 10%, #00a5a8 50%, #00b0a8 90%);
+	color: white !important;
+	font-weight: bold !important;
 }
-.text-gray-500{
+/*añadimos relative (como padre) para no inteferir en la paginación de profile*/
+.relative>.text-gray-500{
 	color: white !important;
 	font-weight: bold !important;
 	
@@ -47,3 +80,66 @@
 .border-gray-800:hover{
 	background: blue
 }
+.table_export:thead{
+	color: orange !important;
+}
+.col-icon-search{
+	width: 50%;
+    margin: 50px auto;
+}
+.form-group .form-control {
+    padding-left: 2.375rem;
+}
+.form-group .form-control-icon {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: 2px;
+    left: 2px;
+    transform: translate(20px,5px) scale(1.3);
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.form-group .form-control-icon2 {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: 0;
+    right: 25px;        
+    transform: translate(10%,50%) scale(1.5);
+    text-align: center;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.navbar{
+	min-width: 400px;
+}
+.f_nav{
+	font-size: 18px !important;
+}
+
+@media (max-width: 800px){
+	.f_nav{
+		font-size: 16px !important;
+	}
+}
+@media (max-width: 670px){
+	.col_center{
+		display: flex;
+	}
+}
+
+@media (max-width: 576px){
+	.f_nav{
+		font-size: 14px !important;
+	}	
+}
+
+/* fonts awesome */
+.fa-trash,.fa-edit,.fa-search{
+	color: white;
+}
+
+

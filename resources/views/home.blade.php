@@ -18,11 +18,11 @@
                     </div>
                 @endif
                 <div class="card-text text-center h5">
-                    {{ __('Registrarse o iniciar sesión para acceder al contenido') }}
+                    {{ __('Es necesario iniciar sesión para acceder al contenido') }}
                 </div>
             @else
                 <div class="card-text text-center h5">
-                    {{ __('Has iniciado sesión correctamente!') }}
+                    {{ __('La sesión ha sido iniciada correctamente') }}
                 </div>
             @endguest
         </div>
