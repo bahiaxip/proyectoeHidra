@@ -14,14 +14,14 @@
         <form enctype="multipart/form-data">
         	<div class="form-group">
         		<label for="name">Nombre</label>
-        		<input type="text" name="name" id="name" class="form-control" wire:model="name"/>
+        		<input type="text" name="name" class="form-control" wire:model="name"/>
             @error('name')
             <p class="text-danger">{{$message}}</p>
             @enderror
         	</div>
         	<div class="form-group">
         		<label for="surnames">Apellidos</label>
-        		<input type="text" name="surnames" id="name" class="form-control" wire:model="surnames"/>
+        		<input type="text" name="surnames" class="form-control" wire:model="surnames"/>
         	</div>
         	<div class="form-group">
         		<label for="pass">Contraseña</label>
@@ -32,7 +32,7 @@
         	</div>
         	<div class="form-group">
         		<label for="email">Email</label>
-        		<input type="text" name="email" id="email" class="form-control" wire:model="email"/>
+        		<input type="text" name="email" class="form-control" wire:model="email"/>
             @error('email')
             <p class="text-danger">{{$message}}</p>
             @enderror
@@ -40,7 +40,7 @@
           <div class="form-group " x-data="toggle2()">
             <label>Imagen</label>
             <div class="custom-file">              
-              <input type="file" class="custom-file-input" name="file" id="customFile" x-on:change="testFile($event)" wire:model="file">
+              <input type="file" class="custom-file-input" name="file"  x-on:change="testFile($event)" wire:model="file">
               <label class="custom-file-label" for="customFile" data-browse="Seleccionar">Subir Archivo</label>
               <!--<label for="file">File</label>
               <input type="file" name="file" id="file" class="form-control" x-on:change="testFile($event)" wire:model="file"/>-->
@@ -50,7 +50,7 @@
           </div>   	
         	<div class="form-group">
         		<label for="country">País</label>
-        		<select name="country" id="country" class="form-control" wire:model="country">
+        		<select name="country" class="form-control" wire:model="country">
         			<option value="0">Seleccione...</option>
               @foreach($countries as $key=>$countri)
         			<option value="{{$countri}}">{{$countri}}</option>
@@ -61,7 +61,7 @@
           @if($country=="España")
         	<div class="form-group">
         		<label for="province">Provincia</label>
-        		<select name="province" id="province" class="form-control" wire:model="province">
+        		<select name="province" class="form-control" wire:model="province">
         			<option value="0">Seleccione...</option>
               @foreach($provincias as $provincia)
         			<option value="{{$provincia}}">{{$provincia}}</option>

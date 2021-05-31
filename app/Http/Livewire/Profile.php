@@ -63,9 +63,6 @@ class Profile extends Component
         $this->checkpdf='1';
         $this->checkexcel='';
         $this->authUser=Auth::user()->name;
-
-        
-        
     }
 
     //botón X de buscador para eliminar datos de búsqueda
@@ -74,8 +71,6 @@ class Profile extends Component
     }
     //limpiar datos de formulario
     public function clear(){
-        //si existen mensaje de error limpiar, si existe input file resetear
-
         if($this->user_id){
             $this->user_id='';
         }
@@ -124,7 +119,6 @@ class Profile extends Component
             $this->selectedColumn=$nameColumn;
             $this->setQuery();
         }
-        
     }
 
     public function setQuery($export=null){
@@ -188,7 +182,6 @@ class Profile extends Component
         $this->orderType='asc';
     }
 
-
     //para no repetir la misma condición creamos método de comprobación 
     //de search y de orden de columnas, si no, se realiza consulta total
     public function updateQuery($export=null){
@@ -231,18 +224,9 @@ class Profile extends Component
                 $this->clearQuery();
                 $profiles=Profiles::orderBy('id','asc')->paginate(10);
             }
-
-            
         }
         return $profiles;
-        //$profiles=Profiles::orderBy('surnames','asc')->paginate(10);
-        //$profiles=Profiles::orderBy('phone','asc')->paginate(10);
-        //$profiles=Profiles::orderBy('country','asc')->paginate(10);
     }
-
-    
-
-
 
     //limpiar datos incluyendo el input files
     public function clear2(){
@@ -254,8 +238,6 @@ class Profile extends Component
     public function updated($fields){
 
         if($this->searchData){
-            
-                
             //si se encuentra en otra página resetea, si no, el buscador
             //no realiza correctamente la búsqueda
             $this->resetPage();            
@@ -331,7 +313,7 @@ class Profile extends Component
     }
     
     //editar usuario
-    //por seguridad no se incluye la edición de la contraseña
+    //(por seguridad no se incluye la edición de la contraseña)
     //el parámetro $id es el id de la tabla users relacionado con el user_id de la tabla profile
     
     public function edit($id){
@@ -404,8 +386,8 @@ class Profile extends Component
         }
     }
     //Los 2 métodos siguientes (saveUserId, clearUserId) son necesarios para 
-    //la confirmación (mediante modal de bootstrap) de eliminación de usuario, 
-    //guardar y limpiar id de usuario seleccionado de forma temporal    
+    //la confirmación de borrado de usuario (mediante un modal de bootstrap), 
+    //guardar y limpiar el id del usuario seleccionado de forma temporal    
     public function saveUserId($userId){
         $this->userIdTmp=$userId;
     }
