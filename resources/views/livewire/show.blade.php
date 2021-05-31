@@ -14,7 +14,7 @@
                 <p class="p-2">{{$this->surnames}}</p>
               </div>
               <div class="col-4" >
-                  <img class="rounded-circle img-thumbnail float-right mr-2 mt-2" src="{{$this->file}}" width="50">
+                  <img class="rounded-circle img-thumbnail float-right mr-2 mt-2" src="{{$this->thumb}}" width="50">
               </div>
             </div>
           </div>

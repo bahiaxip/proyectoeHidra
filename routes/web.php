@@ -29,7 +29,3 @@ Route::middleware(["auth"])->group(function(){
     Route::get('/users', Users::class)->name('users');
     Route::get('/verification',[HomeController::class,'verification'])->name('verification')->middleware('verified');
 });
-
-/*
-Route::get("/exportPDF",[App\Http\Controllers\HomeController::class,'exportPDF'])->name('exportPDF');
-*/

@@ -1,7 +1,4 @@
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
+<!-- Modal crear usuario -->
 <div wire:ignore.self class="modal fade " id="addUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog ">
     <div class="modal-content">
@@ -42,8 +39,6 @@
             <div class="custom-file">              
               <input type="file" class="custom-file-input" name="file"  x-on:change="testFile($event)" wire:model="file">
               <label class="custom-file-label" for="customFile" data-browse="Seleccionar">Subir Archivo</label>
-              <!--<label for="file">File</label>
-              <input type="file" name="file" id="file" class="form-control" x-on:change="testFile($event)" wire:model="file"/>-->
             </div>
               <p class="text-danger text-center" x-text="errorFile"></p>
 
@@ -57,7 +52,7 @@
               @endforeach
         		</select>        		
         	</div>
-        		<!-- aparece si es España -->
+        		<!-- aparece si el país es España -->
           @if($country=="España")
         	<div class="form-group">
         		<label for="province">Provincia</label>

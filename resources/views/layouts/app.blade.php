@@ -20,9 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <link href="{{ asset('css/all.css') }}" rel="stylesheet" type="text/css">
-
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">-->
-
 
     <!-- Styles -->
     <link href="{{ asset('css/livewire.css') }}" rel="stylesheet">
@@ -61,17 +59,8 @@
                     </div>
 
                     <div class="col-3">
-                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>-->
-
                         <div class=" navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
-                            <!--<ul class="navbar-nav mr-auto">
-
-                            </ul>-->
-
-                            <!-- Right Side Of Navbar -->
+                            
                             <ul class="navbar-nav ml-auto ">
                                 <!-- Authentication Links -->
                                 @guest
@@ -106,9 +95,7 @@
                                                 @csrf
                                             </form>
                                         </div>
-                                    </li>
-
-                                            
+                                    </li>   
                                         
                                 @endguest                                
                             </ul>
@@ -117,8 +104,6 @@
                 </div>
             </div>
         </nav>
-
-        
     </div>
     <main class="py-2">
         @yield('content')
@@ -126,8 +111,7 @@
     {{$slot ?? ''}}
     @livewireScripts
 
-    <script>
-        
+    <script>        
     //al crear usuario ocultamos modal
 
         window.livewire.on('userCreated',()=>{
@@ -150,26 +134,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script>
-        /*
-        function toggle(){
-            
-            return {
-                show:false,
-                title:"Mostrar",
-                open(){
-                    //this.show2=false;
-                    this.show=true;this.title="Ocultar"
-                },
-                close(){
-                  this.show=false;this.title="Mostrar"  
-                },
-                isOpen(){
-                    //isOpen2();
-                    return this.show === true
-                }
-            }
-        }
-        */
         function transLogo(){
             return{
                 switchLogo:true,
@@ -256,9 +220,6 @@
                     if(this.hideSwitch)
                         this[data]=false;                    
                 }
-
-
-                
             }
         }
     </script>

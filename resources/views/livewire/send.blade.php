@@ -31,9 +31,7 @@
               </div>
 
               <div class="row justify-content-around">
-
                 <div class="form-check form-check-inline">
-
                   <input class="form-check-input" type="checkbox" id="checkpdf"  value="" wire:model="checkpdf">
                   <label class="form-check-label" for="checkpdf">PDF</label>
                 </div>
@@ -43,9 +41,11 @@
                 </div>
                 
                 <button class="btn btn-sm c_grad_green" wire:click="sendEmail">Enviar</button>
+
                 @if(session()->has('check'))
                     <div class="text-danger ">{{session('check')}}</div>
                 @endif
+                
               </div>
             </form>
           </div>

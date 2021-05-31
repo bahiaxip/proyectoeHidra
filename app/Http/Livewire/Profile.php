@@ -21,6 +21,7 @@ use App\Mail\Users;
 use Auth;
 class Profile extends Component
 {    
+    use WithFileUploads;
     use WithPagination;
     public $user_id;
     public $name;
@@ -42,7 +43,6 @@ class Profile extends Component
     public $selectedColumn;
     //orden de columna (asc/desc)
     public $orderType='asc';
-
     public $userIdTmp;    
     public $checkpdf;
     public $checkexcel;
@@ -51,8 +51,6 @@ class Profile extends Component
     //identificador de opción ocultar activada(true)/desactivada(false)
     public $switchColumn=false;
     protected $pdf;
-
-    use WithFileUploads;
 
     //método mount() (cyclehook de livewire)
     public function mount(){
@@ -69,11 +67,11 @@ class Profile extends Component
     public function clearSearch(){
         $this->searchData='';
     }
+
     //limpiar datos de formulario
     public function clear(){
-        if($this->user_id){
+        if($this->user_id)
             $this->user_id='';
-        }
         $this->name='';
         $this->surnames='';
         $this->pass='';
@@ -84,8 +82,8 @@ class Profile extends Component
         $this->file='';
         $this->thumb='';
         $this->file_name='';
-
     }
+
     //limpiar datos de exportación
     public function clearExport(){
         $this->checkpdf='1';
@@ -106,19 +104,17 @@ class Profile extends Component
 
     //actualizar datos de consulta de orden por columna (si se clica en las columnas)
     public function selectQuery($nameColumn){
-        if($this->switchColumn==false){
-            if($this->selectedColumn != $nameColumn){            
+        if($this->switchColumn==false)
+            if($this->selectedColumn != $nameColumn)            
                 $this->orderType='asc';
-            }else{
-                if($this->orderType=='' || $this->orderType=='desc'){
+            else
+                if($this->orderType=='' || $this->orderType=='desc')
                     $this->orderType='asc';
-                }else{
-                    $this->orderType='desc';    
-                }
-            }
+                else
+                    $this->orderType='desc';
+            
             $this->selectedColumn=$nameColumn;
             $this->setQuery();
-        }
     }
 
     public function setQuery($export=null){
@@ -228,7 +224,7 @@ class Profile extends Component
         return $profiles;
     }
 
-    //limpiar datos incluyendo el input files
+    //limpiar datos incluyendo el input file
     public function clear2(){
         $this->clear();
         //resetea todos los campos necesario para input file
@@ -236,14 +232,12 @@ class Profile extends Component
     }    
     //actualización (cyclehook de livewire)
     public function updated($fields){
-
-        if($this->searchData){
+        if($this->searchData)
             //si se encuentra en otra página resetea, si no, el buscador
             //no realiza correctamente la búsqueda
             $this->resetPage();            
-        }else{
+        else
             $this->clearQuery();
-        }
 
         $this->validateOnly($fields,[
             'name'=>'required',
@@ -288,7 +282,6 @@ class Profile extends Component
             $thumb="img/person.png";
             $file_name="imagen usuario";    
         }else{
-            
             $file_name=$this->file->getClientOriginalName();
             $file=$this->file->store('files','');
             $thumb=$file;            
@@ -420,61 +413,17 @@ class Profile extends Component
         $profiles=$this->updateQuery(true);
         $view="livewire.export";
         $pdf=PDF::loadView($view,['profiles'=>$profiles]);
-        //método output() de pdf
-        //$pdf= PDF::loadView($view,['profiles'=>$profiles])->output();
         $this->pdf=$pdf;
         return response()->streamDownload(function(){
-            //con print o con echo
-            print $this->pdf->stream();            
-            //echo $this->pdf->stream();
+                    //con print o con echo
+            print $this->pdf->stream();//echo $this->pdf->stream();
         },'test.pdf');
-        
-        
-            //para más info sobre configuración de la librería dompdf en Laravel:
-                //https://github.com/barryvdh/laravel-dompdf
-                //opciones de configuración  de laravel con download() de laravel,
-                    //$sheet = $pdf->setPaper('a4', 'landscape');
-                    //$this->pdf=$sheet;
-                    //descarga
-                    //return $sheet->download('download.pdf');
-                    //cabeceras para pdf
-                    //$headers = ['Content-Type' => 'application/pdf'];
-                //descarga de archivo en disco con cabeceras
-                //return response()->download('proyectoeHidra2.pdf',$headers);
-        
-                //opción añadiendo todos los datos dentro del método
-                    //return response()->streamDownload(function(){
-                        //$profiles=$this->updateQuery();
-                        //$view="livewire.export";
-                        //$pdf=PDF::loadView($view,['profiles'=>$profiles]);
-                        //echo $pdf->stream();
-                    //},'test.pdf');
-
-                //opción grabando en disco y descargando el archivo creado
-                    //$profiles=$this->updateQuery();
-                    //$view="livewire.export";
-                    //$pdf= PDF::loadView($view,['profiles'=>$profiles]);
-                    //$pdf->save('proyectoeHidra.pdf');
-                    //return response()->download(public_path().'/proyectoeHidra.pdf');
-                
-        
-                //opción similar a la inicial pero falla en algunas versiones de //PHP, por error de sintaxis, ej: versión de PHP7.3.27
-
-                    //$profiles=$this->updateQuery(true);
-                    //$profiles=Profiles::get();
-                    //$view="livewire.export";
-                    //$pdf= PDF::loadView($view,['profiles'=>$profiles])->output();
-
-                    //return response()->streamDownload(
-                        //fn()=> print($pdf),"proyectoeHidra.pdf"
-                    //);
     }
 
     //guardar el archivo PDF en el server para después poder enviar por correo 
     //como archivo adjunto
     public function savePDF(){
         $profiles=$this->updateQuery(true);
-        //$profiles=Profiles::paginate(10);
         $view="livewire.export";
         $pdf= PDF::loadView($view,['profiles'=>$profiles]);
         $pdf->save('proyectoeHidra.pdf');
@@ -482,8 +431,7 @@ class Profile extends Component
 
     //exportar archivo Excel al navegador del usuario
     public function exportExcel(){
-        $profiles=$this->updateQuery(true);        
-        //exportar
+        $profiles=$this->updateQuery(true);
         return Excel::download(new UsersExports($profiles),'proyectoeHidra.xlsx');
     }
 
@@ -522,34 +470,10 @@ class Profile extends Component
         }
     }
 
-    //consultas para evento al clicar los th de las columnas que ordenan en asc o 
-    //desc respectivamente
-    /*
-    public function testQuery(){
-        //name asc/desc
-        $profiles=Profiles::with('user')
-        ->join('users','profiles.user_id','=','users.id')
-        ->orderBy('users.name',$order)
-        ->paginate(10);
-        //email
-        $profiles=Profiles::with('user')
-        ->join('users','profiles.user_id','=','users.id')
-        ->orderBy('users.email',$order)
-        ->paginate(10);
-        //surnames
-        $profiles=Profiles::orderBy('surnames',$order)->paginate(10);
-        //country
-        $profiles=Profiles::orderBy('country',$order)->paginate(10);
-        //phone
-        $profiles=Profiles::orderBy('phone',$order)->paginate(10);
-    }
-    */
-
     //renderizado (livewire)
     public function render()
     {
-        $profiles=$this->updateQuery();        
-
+        $profiles=$this->updateQuery();
         return view('livewire.profile',['profiles'=>$profiles,'countries'=>$this->countries,'provincias'=>$this->provincias]);
     }
 }

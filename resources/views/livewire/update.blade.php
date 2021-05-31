@@ -20,16 +20,7 @@
         		<label for="surnames">Apellidos</label>
         		<input type="text" name="surnames" id="surnames" class="form-control" wire:model="surnames"/>
         	</div>
-  <!-- ignoramos pass en la edición -->
-  <!--
-        	<div class="form-group">
-        		<label for="pass">Contraseña</label>
-        		<input type="password" name="pass" class="form-control" wire:model="pass"/>
-            @error('pass')
-            <p class="text-danger">{{$message}}</p>
-            @enderror
-        	</div>
-    -->
+  <!-- ignoramos pass en la edición por seguridad -->
         	<div class="form-group">
         		<label for="email">Email</label>
         		<input type="text" name="email" id="email" class="form-control" wire:model="email"/>

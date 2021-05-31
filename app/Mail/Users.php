@@ -11,11 +11,6 @@ class Users extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
     //array datos adjuntos (pdf y/o excel)
     public $attach;
     //datos usuarios (eloquent)
@@ -29,17 +24,17 @@ class Users extends Mailable
     public function build()
     {
         $mail=$this->from("proyectoeHidra@gmail.com")
-                ->view('livewire.viewemail')
-                ->with("user",$this->user);        
-                if(isset($this->attach["pdf"]) && $this->attach["pdf"]=="1"){
-                    $mail->attach(public_path('proyectoeHidra.pdf'),[
-                        'as'=>'proyectoeHidra.pdf',
-                        'mime'=>'application/pdf'
-                    ]);
-                }
-                if(isset($this->attach["excel"]) && $this->attach["excel"]=="1"){
-                    $mail->attach(public_path('proyectoeHidra.xlsx'));    
-                }
+            ->view('livewire.viewemail')
+            ->with("user",$this->user);        
+            if(isset($this->attach["pdf"]) && $this->attach["pdf"]=="1"){
+                $mail->attach(public_path('proyectoeHidra.pdf'),[
+                    'as'=>'proyectoeHidra.pdf',
+                    'mime'=>'application/pdf'
+                ]);
+            }
+            if(isset($this->attach["excel"]) && $this->attach["excel"]=="1"){
+                $mail->attach(public_path('proyectoeHidra.xlsx'));    
+            }
                 
         return $mail;
     }

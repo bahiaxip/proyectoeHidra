@@ -14,12 +14,8 @@
                             
                 </div>
             </div>
-
-
-
         </div>
     </div>
-    {{-- Stop trying to control. --}}
 </div>
 <style>
     [x-cloak] { 
